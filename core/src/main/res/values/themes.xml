@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryDark</item>
+
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!--Component styles-->
+        <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
+        <item name="materialCardViewStyle">@style/Widget.App.CardView</item>
+        <item name="textInputStyle">@style/Widget.App.TextInputLayout</item>
+        <item name="editTextStyle">@style/Widget.App.TextEditText</item>
+        <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigation</item>
+        <item name="materialButtonStyle">@style/Widget.App.Button</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.App.ButtonOutlined</item>
+
+        <!--Material shape attributes-->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.App.LargeComponent</item>
+
+        <!--Material type attributes-->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.App.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.App.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.App.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.App.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.App.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.App.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.App.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.App.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.App.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.App.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.App.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.App.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.App.Overline</item>
+
+    </style>
+</resources>

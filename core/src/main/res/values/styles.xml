@@ -1,0 +1,36 @@
+<resources>
+    <style name="Widget.App.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">@dimen/card_elevation</item>
+    </style>
+
+    <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+        <item name="boxBackgroundColor">@color/colorPrimaryLight</item>
+        <item name="android:textColorHint">@color/textColorPrimary</item>
+        <item name="hintTextColor">@color/textColorPrimary</item>
+    </style>
+
+    <style name="Widget.App.TextEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+    </style>
+
+    <style name="Widget.App.BottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView.Colored" />
+    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button"/>
+    <style name="Widget.App.ButtonOutlined" parent="Widget.MaterialComponents.Button.OutlinedButton"/>
+    <style name="Widget.App.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary"/>
+
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">2dp</item>
+    </style>
+    <style name="ShapeAppearance.App.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">2dp</item>
+    </style>
+
+    <dimen name="card_elevation">4dp</dimen>
+</resources>

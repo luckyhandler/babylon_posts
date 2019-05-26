@@ -26,6 +26,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':core')
 
+    // Android Support Libraries and AndroidX
+    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
+
     // Image Downloader
     implementation 'com.squareup.picasso:picasso:2.5.2'
 

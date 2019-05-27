@@ -3,9 +3,9 @@ package de.handler.core.repository
 import de.handler.core.dto.Comment
 import de.handler.core.dto.Post
 import de.handler.core.dto.User
-import de.handler.core.provider.Provider
+import de.handler.core.provider.DataProvider
 
-class Repository(private val provider: Provider) {
+class Repository(private val dataProvider: DataProvider) {
     private val _users = mutableListOf<User>()
     // Contains Posts for user ids
     private val _posts = mutableListOf<Post>()
@@ -14,7 +14,7 @@ class Repository(private val provider: Provider) {
 
     suspend fun fetchUsers(forceReload: Boolean = false): List<User?> {
         if (_users.isEmpty() || forceReload) {
-            val userList = provider.getUsersAsync()
+            val userList = dataProvider.getUsersAsync()
             _users.clear()
             _users.addAll(userList)
         }
@@ -23,7 +23,7 @@ class Repository(private val provider: Provider) {
 
     suspend fun fetchPosts(forceReload: Boolean = false): List<Post?> {
         if (_posts.isEmpty() || forceReload) {
-            val postList = provider.getPostsAsync().sortedBy { post -> post.userId }
+            val postList = dataProvider.getPostsAsync().sortedBy { post -> post.userId }
             _posts.clear()
             _posts.addAll(postList)
         }
@@ -32,7 +32,7 @@ class Repository(private val provider: Provider) {
 
     suspend fun fetchComments(forceReload: Boolean = false): List<Comment?> {
         if (_comments.isEmpty() || forceReload) {
-            val commentList = provider.getCommentsAsync()
+            val commentList = dataProvider.getCommentsAsync()
             _comments.clear()
             _comments.addAll(commentList)
         }

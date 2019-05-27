@@ -2,8 +2,8 @@ package de.handler.core
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
-import de.handler.core.provider.Provider
-import de.handler.core.provider.ProviderImpl
+import de.handler.core.provider.DataProvider
+import de.handler.core.provider.DataProviderImpl
 import de.handler.core.repository.Repository
 import okhttp3.Cache
 import okhttp3.OkHttpClient
@@ -18,7 +18,7 @@ val repositoryModule = module {
 }
 
 val providerModule = module {
-    single<Provider> { ProviderImpl(get()) }
+    single<DataProvider> { DataProviderImpl(get()) }
 }
 
 val networkModule = module {

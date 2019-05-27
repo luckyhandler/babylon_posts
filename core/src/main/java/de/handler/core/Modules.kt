@@ -5,16 +5,17 @@ import com.squareup.moshi.Moshi
 import de.handler.core.provider.DataProvider
 import de.handler.core.provider.DataProviderImpl
 import de.handler.core.repository.Repository
+import de.handler.core.service.Service
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidApplication
-import org.koin.dsl.module.module
+import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.io.File
 
 val repositoryModule = module {
-    single<Repository> { Repository(get()) }
+    single { Repository(get()) }
 }
 
 val providerModule = module {

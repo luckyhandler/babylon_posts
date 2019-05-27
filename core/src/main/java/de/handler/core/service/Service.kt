@@ -1,4 +1,4 @@
-package de.handler.core
+package de.handler.core.service
 
 import de.handler.core.dto.Comment
 import de.handler.core.dto.Post

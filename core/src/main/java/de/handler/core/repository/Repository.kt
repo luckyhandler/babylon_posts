@@ -6,6 +6,13 @@ import de.handler.core.dto.User
 import de.handler.core.provider.DataProvider
 
 class Repository(private val dataProvider: DataProvider) {
+    val users: List<User>
+        get() = _users
+    val posts: List<Post>
+        get() = _posts
+    val comments: List<Comment>
+        get() = _comments
+
     private val _users = mutableListOf<User>()
     // Contains Posts for user ids
     private val _posts = mutableListOf<Post>()

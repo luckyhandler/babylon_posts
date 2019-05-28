@@ -12,33 +12,32 @@ import com.squareup.picasso.Picasso
 import de.handler.core.dto.Post
 
 
-class PostAdapter : ListAdapter<Post, PostAdapter.PostViewHolder>(DiffItemCallback()) {
+class PostAdapter(private val onClickedAction: ((post: Post) -> Unit)? = null) : ListAdapter<Post, PostAdapter.PostViewHolder>(PostsDiffItemCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_post, parent, false)
-        return PostViewHolder(view, Picasso.with(view.context))
+        return PostViewHolder(view, Picasso.with(view.context), onClickedAction)
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 
-    class PostViewHolder(itemView: View, private val picasso: Picasso) : RecyclerView.ViewHolder(itemView) {
+    class PostViewHolder(itemView: View, private val picasso: Picasso, private val onClickedAction: ((post: Post) -> Unit)?) :
+        RecyclerView.ViewHolder(itemView) {
         fun bind(post: Post?) {
             if (post == null) return
 
-            val userImageView = itemView.findViewById<ImageView>(R.id.imageView)
-            val postTitleTextView = itemView.findViewById<TextView>(R.id.titleTextView)
-            val postBodyTextView = itemView.findViewById<TextView>(R.id.bodyTextView)
+            itemView.findViewById<ImageView>(R.id.imageView).loadUrl(picasso, post.userImage)
+            itemView.findViewById<TextView>(R.id.titleTextView).text = post.title
+            itemView.findViewById<TextView>(R.id.bodyTextView).text = post.body
 
-            userImageView.loadUrl(picasso, post.userImage)
-            postTitleTextView.text = post.title
-            postBodyTextView.text = post.body
+            itemView.setOnClickListener { onClickedAction?.invoke(post) }
         }
     }
 }
 
-class DiffItemCallback : DiffUtil.ItemCallback<Post>() {
+class PostsDiffItemCallback : DiffUtil.ItemCallback<Post>() {
     override fun areItemsTheSame(oldItem: Post, newItem: Post): Boolean = oldItem.id == newItem.id
     override fun areContentsTheSame(oldItem: Post, newItem: Post): Boolean = oldItem == newItem
 }

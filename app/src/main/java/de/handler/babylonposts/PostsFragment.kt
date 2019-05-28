@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import de.handler.core.repository.Repository
 import kotlinx.android.synthetic.main.fragment_posts.*
 import org.koin.android.ext.android.inject
@@ -27,10 +28,16 @@ class PostsFragment : Fragment() {
 
         val viewModel = ViewModelProviders.of(this).get(PostsViewModel::class.java)
 
-        val adapter = PostAdapter()
+        val adapter = PostAdapter {
+            findNavController().navigate(
+                R.id.action_postsFragment_to_postsDetailFragment,
+                Bundle().apply { putInt(PostsDetailFragment.ARG_POST_ID, it.id) })
+        }
+
         viewModel.observePosts(repository).observe(this, Observer {
             adapter.submitList(it)
         })
         recyclerView.adapter = adapter
+        recyclerView.setHasFixedSize(true)
     }
 }

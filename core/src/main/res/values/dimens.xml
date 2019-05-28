@@ -2,4 +2,7 @@
 <resources>
     <dimen name="size_image">128dp</dimen>
     <dimen name="margin_vertical">16dp</dimen>
+    <dimen name="margin_horizontal">16dp</dimen>
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="card_corner_radius">4dp</dimen>
 </resources>

@@ -9,5 +9,24 @@
         android:id="@+id/postsFragment"
         android:name="de.handler.babylonposts.PostsFragment"
         android:label="fragment_posts"
-        tools:layout="@layout/fragment_posts"/>
+        tools:layout="@layout/fragment_posts">
+
+        <action
+            android:id="@+id/action_postsFragment_to_postsDetailFragment"
+            app:destination="@id/postsDetailFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/postsDetailFragment"
+        android:name="de.handler.babylonposts.PostsDetailFragment"
+        android:label="fragment_posts_detail"
+        tools:layout="@layout/fragment_posts_detail">
+
+        <argument
+            android:name="postId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+
+    </fragment>
 </navigation>

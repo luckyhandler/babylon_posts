@@ -45,4 +45,8 @@ class Repository(private val dataProvider: DataProvider) {
         }
         return _comments
     }
+
+    fun fetchPost(postId: Int): Post? {
+        return _posts.firstOrNull { it.id == postId }
+    }
 }

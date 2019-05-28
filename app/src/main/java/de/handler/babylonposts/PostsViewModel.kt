@@ -16,14 +16,14 @@ class PostsViewModel: ViewModel(), CoroutineScope {
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.IO + job
 
-    private val postLiveData = MutableLiveData<List<Post?>>()
+    private val postsLiveData = MutableLiveData<List<Post?>>()
 
     fun observePosts(repository: Repository): LiveData<List<Post?>> {
         launch {
             val posts = repository.fetchPosts()
-            postLiveData.postValue(posts)
+            postsLiveData.postValue(posts)
         }
 
-        return postLiveData
+        return postsLiveData
     }
 }

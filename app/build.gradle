@@ -1,7 +1,5 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -31,6 +29,10 @@ dependencies {
 
     // Image Downloader
     implementation 'com.squareup.picasso:picasso:2.5.2'
+
+    // Navigation
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.0.0'
 
     testImplementation 'junit:junit:4.12'
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="content_description_post_image">post image</string>
+    <string name="content_description_user_image">user image</string>
     <string name="comments_size">This post has %1s comments</string>
 </resources>

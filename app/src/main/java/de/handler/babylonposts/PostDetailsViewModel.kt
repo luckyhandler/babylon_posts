@@ -15,7 +15,7 @@ import kotlin.coroutines.CoroutineContext
 class PostDetailsViewModel: ViewModel(), CoroutineScope {
     private val job = Job()
     override val coroutineContext: CoroutineContext
-        get() = Dispatchers.IO + job
+        get() = Dispatchers.Main + job
 
     private val commentsLiveData = MutableLiveData<List<Comment?>>()
 

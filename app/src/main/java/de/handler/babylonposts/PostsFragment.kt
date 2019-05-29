@@ -28,7 +28,7 @@ class PostsFragment : Fragment() {
 
         val viewModel = ViewModelProviders.of(this).get(PostsViewModel::class.java)
 
-        val adapter = PostAdapter {
+        val adapter = PostAdapter(repository) {
             findNavController().navigate(
                 R.id.action_postsFragment_to_postsDetailFragment,
                 Bundle().apply { putInt(PostsDetailFragment.ARG_POST_ID, it.id) })
@@ -37,6 +37,8 @@ class PostsFragment : Fragment() {
         viewModel.observePosts(repository).observe(this, Observer {
             adapter.submitList(it)
         })
+        viewModel.preloadUsers(repository)
+
         recyclerView.adapter = adapter
         recyclerView.setHasFixedSize(true)
     }

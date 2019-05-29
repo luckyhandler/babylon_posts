@@ -26,4 +26,10 @@ class PostsViewModel: ViewModel(), CoroutineScope {
 
         return postsLiveData
     }
+
+    fun preloadUsers(repository: Repository) {
+        launch {
+            repository.fetchUsers()
+        }
+    }
 }

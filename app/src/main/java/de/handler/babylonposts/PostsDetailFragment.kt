@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.squareup.picasso.Picasso
 import de.handler.core.repository.Repository
 import kotlinx.android.synthetic.main.fragment_posts_detail.*
 import org.koin.android.ext.android.inject
@@ -32,7 +33,9 @@ class PostsDetailFragment : Fragment() {
         viewModel.getPost(postId, repository) {
             postTitleTextView.text = it.title
             postBodyTextView.text = it.body
-            userNameTextView.text = ""
+            val user = it.userId?.let { id -> repository.fetchUser(id) }
+            userNameTextView.text = user?.username
+            userImageView.loadUrl(Picasso.with(view.context), user?.image)
         }
 
         val adapter = CommentsAdapter()

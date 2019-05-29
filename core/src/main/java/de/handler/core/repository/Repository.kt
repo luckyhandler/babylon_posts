@@ -21,7 +21,16 @@ class Repository(private val dataProvider: DataProvider) {
 
     suspend fun fetchUsers(forceReload: Boolean = false): List<User?> {
         if (_users.isEmpty() || forceReload) {
-            val userList = dataProvider.getUsersAsync()
+            val userList = dataProvider.getUsersAsync().sortedBy { it.username }
+
+            val imageMap = mutableMapOf<Int, String>()
+            val range = IntRange(0, 1000)
+            userList.forEach {
+                if (!imageMap.containsKey(it.id)) {
+                    imageMap[it.id] = "https://picsum.photos/id/${range.random()}/200"
+                }
+                it.image = imageMap[it.id]
+            }
             _users.clear()
             _users.addAll(userList)
         }
@@ -48,5 +57,9 @@ class Repository(private val dataProvider: DataProvider) {
 
     fun fetchPost(postId: Int): Post? {
         return _posts.firstOrNull { it.id == postId }
+    }
+
+    fun fetchUser(userId: Int): User? {
+        return _users.firstOrNull { it.id == userId }
     }
 }

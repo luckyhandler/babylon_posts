@@ -12,11 +12,15 @@
         android:id="@+id/userImageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintWidth_percent="0.3"
-        app:layout_constraintBottom_toTopOf="@+id/commentsRecyclerView"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/content_description_user_image"
+        android:cropToPadding="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/postTitleTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/content_description_user_image"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/postTitleTextView"
@@ -26,10 +30,11 @@
         android:layout_marginStart="@dimen/margin_horizontal"
         android:layout_marginEnd="@dimen/margin_horizontal"
         android:layout_marginBottom="@dimen/margin_vertical"
+        android:layout_marginTop="@dimen/margin_vertical"
         app:layout_constraintBottom_toTopOf="@+id/postBodyTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/userImageView"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userImageView"
         tools:text="Disappointing. I have starred at this tracker a couple of times during our stay."/>
 
     <TextView
@@ -42,7 +47,7 @@
         android:layout_marginBottom="@dimen/margin_vertical"
         app:layout_constraintBottom_toTopOf="@+id/userNameTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/userImageView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/postTitleTextView"
         tools:text="I STAKED OUT MY LOCAL DOMINO’S TO SEE JUST HOW ACCURATE ITS PIZZA TRACKER IS"/>
 
@@ -56,7 +61,7 @@
         android:layout_marginBottom="@dimen/margin_vertical"
         app:layout_constraintBottom_toTopOf="@+id/commentsCountTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/userImageView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/postBodyTextView"
         tools:text="Leonhard Mashad"/>
 
@@ -70,7 +75,7 @@
         android:layout_marginBottom="@dimen/margin_vertical"
         app:layout_constraintBottom_toTopOf="@+id/commentsRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/userImageView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userNameTextView"
         tools:text="Number of comments: 7"/>
 

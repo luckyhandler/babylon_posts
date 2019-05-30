@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="size_image_post_details">160dp</dimen>
+    <dimen name="size_image_post_details">240dp</dimen>
     <dimen name="size_image">80dp</dimen>
     <dimen name="margin_vertical">16dp</dimen>
     <dimen name="margin_horizontal">16dp</dimen>

@@ -27,7 +27,7 @@ class Repository(private val dataProvider: DataProvider) {
             val range = IntRange(0, 1000)
             userList.forEach {
                 if (!imageMap.containsKey(it.id)) {
-                    imageMap[it.id] = "https://picsum.photos/id/${range.random()}/200"
+                    imageMap[it.id] = "https://picsum.photos/id/${range.random()}/500"
                 }
                 it.image = imageMap[it.id]
             }

@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -13,7 +14,8 @@ import de.handler.core.dto.Post
 import de.handler.core.repository.Repository
 
 
-class PostAdapter(private val repository: Repository, private val onClickedAction: ((post: Post) -> Unit)? = null) : ListAdapter<Post, PostAdapter.PostViewHolder>(PostsDiffItemCallback()) {
+class PostAdapter(private val repository: Repository, private val onClickedAction: ((transitionView: View, post: Post) -> Unit)? = null) :
+    ListAdapter<Post, PostAdapter.PostViewHolder>(PostsDiffItemCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_post, parent, false)
@@ -28,7 +30,7 @@ class PostAdapter(private val repository: Repository, private val onClickedActio
         itemView: View,
         private val repository: Repository,
         private val picasso: Picasso,
-        private val onClickedAction: ((post: Post) -> Unit)?
+        private val onClickedAction: ((transitionView: View, post: Post) -> Unit)?
     ) :
 
         RecyclerView.ViewHolder(itemView) {
@@ -36,11 +38,15 @@ class PostAdapter(private val repository: Repository, private val onClickedActio
             if (post == null) return
 
             val user = post.userId?.let { repository.fetchUser(it) }
-            itemView.findViewById<ImageView>(R.id.imageView).loadUrl(picasso, user?.image)
+            val imageView = itemView.findViewById<ImageView>(R.id.imageView)
+            imageView.loadUrl(picasso, user?.image)
             itemView.findViewById<TextView>(R.id.titleTextView).text = post.title
             itemView.findViewById<TextView>(R.id.bodyTextView).text = post.body
 
-            itemView.setOnClickListener { onClickedAction?.invoke(post) }
+            itemView.setOnClickListener {
+                ViewCompat.setTransitionName(imageView, itemView.context.getString(R.string.transition_image))
+                onClickedAction?.invoke(imageView, post)
+            }
         }
     }
 }

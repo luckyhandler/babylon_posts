@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.transition.TransitionInflater
 import com.squareup.picasso.Picasso
 import de.handler.core.repository.Repository
 import kotlinx.android.synthetic.main.fragment_posts_detail.*
@@ -15,6 +16,13 @@ import org.koin.android.ext.android.inject
 
 class PostsDetailFragment : Fragment() {
     private val repository: Repository by inject()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val transition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+        sharedElementEnterTransition = transition
+        sharedElementReturnTransition = transition
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import de.handler.core.repository.Repository
 import kotlinx.android.synthetic.main.fragment_posts.*
@@ -28,10 +29,12 @@ class PostsFragment : Fragment() {
 
         val viewModel = ViewModelProviders.of(this).get(PostsViewModel::class.java)
 
-        val adapter = PostAdapter(repository) {
+        val adapter = PostAdapter(repository) { transitionView, post ->
             findNavController().navigate(
                 R.id.action_postsFragment_to_postsDetailFragment,
-                Bundle().apply { putInt(PostsDetailFragment.ARG_POST_ID, it.id) })
+                Bundle().apply { putInt(PostsDetailFragment.ARG_POST_ID, post.id) },
+                null,
+                FragmentNavigatorExtras(transitionView to getString(R.string.transition_image)))
         }
 
         viewModel.observePosts(repository).observe(this, Observer {

@@ -1,93 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/TextAppearance.App.Headline1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".PostsDetailFragment">
 
-    <ImageView
-        android:id="@+id/userImageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/content_description_user_image"
-        android:cropToPadding="true"
-        android:scaleType="centerCrop"
-        android:transitionName="@string/transition_image"
-        app:layout_constraintBottom_toTopOf="@+id/postTitleTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <TextView
-        android:id="@+id/postTitleTextView"
-        style="@style/TextAppearance.App.Headline5"
-        android:layout_width="0dp"
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_horizontal"
-        android:layout_marginTop="@dimen/margin_vertical"
-        android:layout_marginEnd="@dimen/margin_horizontal"
-        android:layout_marginBottom="@dimen/margin_vertical"
-        app:layout_constraintBottom_toTopOf="@+id/postBodyTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/userImageView"
-        tools:text="Disappointing. I have starred at this tracker a couple of times during our stay."/>
+        android:layout_margin="@dimen/margin_card">
 
-    <TextView
-        android:id="@+id/postBodyTextView"
-        style="@style/TextAppearance.MaterialComponents.Body1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_horizontal"
-        android:layout_marginEnd="@dimen/margin_horizontal"
-        android:layout_marginBottom="@dimen/margin_vertical"
-        app:layout_constraintBottom_toTopOf="@+id/userNameTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postTitleTextView"
-        tools:text="I STAKED OUT MY LOCAL DOMINO’S TO SEE JUST HOW ACCURATE ITS PIZZA TRACKER IS"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/userNameTextView"
-        style="@style/TextAppearance.MaterialComponents.Body1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_horizontal"
-        android:layout_marginEnd="@dimen/margin_horizontal"
-        android:layout_marginBottom="@dimen/margin_vertical"
-        app:layout_constraintBottom_toTopOf="@+id/commentsCountTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postBodyTextView"
-        tools:text="Leonhard Mashad"/>
+            <ImageView
+                android:id="@+id/userImageView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/content_description_user_image"
+                android:cropToPadding="true"
+                android:scaleType="centerCrop"
+                android:transitionName="@string/transition_image"
+                app:layout_constraintBottom_toTopOf="@+id/postTitleTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/commentsCountTextView"
-        style="@style/TextAppearance.MaterialComponents.Body1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_horizontal"
-        android:layout_marginEnd="@dimen/margin_horizontal"
-        android:layout_marginBottom="@dimen/margin_vertical"
-        app:layout_constraintBottom_toTopOf="@+id/commentsRecyclerView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userNameTextView"
-        tools:text="Number of comments: 7"/>
+            <TextView
+                android:id="@+id/postTitleTextView"
+                style="@style/TextAppearance.App.Headline5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_horizontal"
+                android:layout_marginTop="@dimen/margin_vertical"
+                android:layout_marginEnd="@dimen/margin_horizontal"
+                android:layout_marginBottom="@dimen/margin_vertical"
+                app:layout_constraintBottom_toTopOf="@+id/postBodyTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/userImageView"
+                tools:text="Disappointing. I have starred at this tracker a couple of times during our stay."/>
+
+            <TextView
+                android:id="@+id/postBodyTextView"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_horizontal"
+                android:layout_marginEnd="@dimen/margin_horizontal"
+                android:layout_marginBottom="@dimen/margin_vertical"
+                app:layout_constraintBottom_toTopOf="@+id/userNameTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/postTitleTextView"
+                tools:text="I STAKED OUT MY LOCAL DOMINO’S TO SEE JUST HOW ACCURATE ITS PIZZA TRACKER IS"/>
+
+            <TextView
+                android:id="@+id/userNameTextView"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_horizontal"
+                android:layout_marginEnd="@dimen/margin_horizontal"
+                android:layout_marginBottom="@dimen/margin_vertical"
+                app:layout_constraintBottom_toTopOf="@+id/commentsCountTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/postBodyTextView"
+                tools:text="Leonhard Mashad"/>
+
+            <TextView
+                android:id="@+id/commentsCountTextView"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_horizontal"
+                android:layout_marginEnd="@dimen/margin_horizontal"
+                android:layout_marginBottom="@dimen/margin_vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/userNameTextView"
+                tools:text="Number of comments: 7"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/commentsRecyclerView"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/commentsCountTextView"/>
+        android:layout_weight="1"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

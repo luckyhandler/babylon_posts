@@ -20,7 +20,7 @@ class PostDetailsViewModel: ViewModel(), CoroutineScope {
     private val commentsLiveData = MutableLiveData<List<Comment?>>()
 
     fun getPost(postId: Int, repository: Repository, onPostReceivedAction: (post: Post) -> Unit) {
-        launch {
+        launch(Dispatchers.Main) {
             repository.fetchPost(postId)?.let { onPostReceivedAction(it) }
         }
     }

@@ -22,3 +22,8 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task testAll(dependsOn: [':app:test', ':core:test']) {
+    group = 'custom_tasks'
+    description = "Run all tests"
+}

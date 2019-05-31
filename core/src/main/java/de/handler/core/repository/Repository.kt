@@ -26,8 +26,10 @@ class Repository(private val dataProvider: DataProvider) {
             val imageMap = mutableMapOf<Int, String>()
             val range = IntRange(0, 1000)
             userList.forEach {
-                if (!imageMap.containsKey(it.id)) {
+                if (!imageMap.containsKey(it.id) && it.image.isNullOrBlank()) {
                     imageMap[it.id] = "https://picsum.photos/id/${range.random()}/500"
+                } else if (!it.image.isNullOrBlank()) {
+                    imageMap[it.id] = it.image!!
                 }
                 it.image = imageMap[it.id]
             }

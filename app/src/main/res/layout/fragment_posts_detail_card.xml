@@ -15,7 +15,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/userImageView"
+            android:id="@+id/postImageView"
             android:layout_width="0dp"
             android:layout_height="@dimen/size_image_post_details"
             android:adjustViewBounds="true"
@@ -41,7 +41,7 @@
             app:layout_constraintBottom_toTopOf="@+id/postBodyTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/userImageView"
+            app:layout_constraintTop_toBottomOf="@id/postImageView"
             tools:text="Disappointing. I have starred at this tracker a couple of times during our stay."/>
 
         <TextView

@@ -12,6 +12,7 @@ import androidx.transition.TransitionInflater
 import com.squareup.picasso.Picasso
 import de.handler.core.repository.Repository
 import kotlinx.android.synthetic.main.fragment_posts_detail.*
+import kotlinx.android.synthetic.main.fragment_posts_detail_card.*
 import org.koin.android.ext.android.inject
 
 class PostsDetailFragment : Fragment() {
@@ -39,11 +40,11 @@ class PostsDetailFragment : Fragment() {
         val postId = arguments?.getInt(ARG_POST_ID) ?: return
 
         viewModel.getPost(postId, repository) {
+            postImageView.loadUrl(Picasso.with(view.context), it?.image)
             postTitleTextView.text = it.title
             postBodyTextView.text = it.body
             val user = it.userId?.let { id -> repository.fetchUser(id) }
             userNameTextView.text = user?.username
-            userImageView.loadUrl(Picasso.with(view.context), user?.image)
         }
 
         val adapter = CommentsAdapter()

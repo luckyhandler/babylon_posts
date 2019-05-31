@@ -37,16 +37,15 @@ class PostAdapter(private val repository: Repository, private val onClickedActio
         fun bind(post: Post?) {
             if (post == null) return
 
-            val user = post.userId?.let { repository.fetchUser(it) }
             val imageView = itemView.findViewById<ImageView>(R.id.imageView)
-            imageView.loadUrl(picasso, user?.image)
-            itemView.findViewById<TextView>(R.id.titleTextView).text = post.title
-            itemView.findViewById<TextView>(R.id.bodyTextView).text = post.body
-
+            imageView.loadUrl(picasso, post.image)
             itemView.setOnClickListener {
                 ViewCompat.setTransitionName(imageView, itemView.context.getString(R.string.transition_image))
                 onClickedAction?.invoke(imageView, post)
             }
+
+            itemView.findViewById<TextView>(R.id.titleTextView).text = post.title
+            itemView.findViewById<TextView>(R.id.bodyTextView).text = post.body
         }
     }
 }

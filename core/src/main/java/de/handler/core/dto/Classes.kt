@@ -5,8 +5,7 @@ data class User(
     val name: String?,
     val email: String?,
     val username: String?,
-    val address: Address?,
-    var image: String? = null
+    val address: Address?
 )
 
 data class Address(
@@ -26,7 +25,8 @@ data class Post(
     val id: Int,
     val userId: Int?,
     val title: String?,
-    val body: String?
+    val body: String?,
+    var image: String? = null
 )
 
 data class Comment(

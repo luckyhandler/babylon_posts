@@ -20,13 +20,6 @@
     <fragment
         android:id="@+id/postsDetailFragment"
         android:name="de.handler.babylonposts.PostsDetailFragment"
-        android:label="fragment_posts_detail"
-        tools:layout="@layout/fragment_posts_detail">
-
-        <argument
-            android:name="postId"
-            app:argType="integer"
-            android:defaultValue="-1" />
-
-    </fragment>
+        tools:layout="@layout/fragment_posts_detail"/>
+    
 </navigation>

@@ -35,12 +35,14 @@ class PostsDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         val viewModel = ViewModelProviders.of(this).get(PostDetailsViewModel::class.java)
 
         val postId = arguments?.getInt(ARG_POST_ID) ?: return
+        activity?.title = getString(R.string.post_details_title, postId)
 
         viewModel.getPost(postId, repository) {
-            postImageView.loadUrl(Picasso.with(view.context), it?.image)
+            postImageView.loadUrl(Picasso.with(view.context), it.image)
             postTitleTextView.text = it.title
             postBodyTextView.text = it.body
             val user = it.userId?.let { id -> repository.fetchUser(id) }

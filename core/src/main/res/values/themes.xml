@@ -8,15 +8,11 @@
         <item name="colorSecondaryVariant">@color/colorSecondaryDark</item>
 
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@android:color/background_light</item>
 
         <!--Component styles-->
         <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
         <item name="materialCardViewStyle">@style/Widget.App.CardView</item>
-        <item name="textInputStyle">@style/Widget.App.TextInputLayout</item>
-        <item name="editTextStyle">@style/Widget.App.TextEditText</item>
-        <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigation</item>
-        <item name="materialButtonStyle">@style/Widget.App.Button</item>
-        <item name="materialButtonOutlinedStyle">@style/Widget.App.ButtonOutlined</item>
 
         <!--Material shape attributes-->
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>

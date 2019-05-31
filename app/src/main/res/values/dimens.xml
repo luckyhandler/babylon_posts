@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="toolbar_offset_start">250dp</dimen>
+    <dimen name="toolbar_offset_top">148dp</dimen>
+</resources>

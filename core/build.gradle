@@ -43,9 +43,6 @@ dependencies {
     // Dependency Injection
     api 'org.koin:koin-android:2.0.0'
 
-    // Logging
-    api 'com.jakewharton.timber:timber:4.7.1'
-
     // Network
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     implementation 'com.squareup.retrofit2:converter-moshi:2.5.0'

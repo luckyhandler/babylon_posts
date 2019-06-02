@@ -6,10 +6,8 @@ import android.widget.ImageView
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Target
-import timber.log.Timber
 
 fun ImageView.loadUrl(picasso: Picasso, url: String?) {
-    Timber.i("ImageView url is $url")
     if (!url.isNullOrBlank()) {
         picasso
             .load(url)

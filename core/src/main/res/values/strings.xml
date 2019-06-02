@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Babylon Posts</string>
     <string name="content_description_post_image">post image</string>
-    <string name="content_description_user_image">user image</string>
+    <string name="content_description_post_detail_image">post detail image</string>
     <string name="transition_image">transition image</string>
     <string name="size_comments">This post has %1s comments</string>
     <string name="title_comments">Comments</string>

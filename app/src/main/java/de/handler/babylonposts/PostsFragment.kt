@@ -29,7 +29,7 @@ class PostsFragment : Fragment() {
 
         val viewModel = ViewModelProviders.of(this).get(PostsViewModel::class.java)
 
-        val adapter = PostAdapter(repository) { transitionView, post ->
+        val adapter = PostAdapter() { transitionView, post ->
             findNavController().navigate(
                 R.id.action_postsFragment_to_postsDetailFragment,
                 Bundle().apply { putInt(PostsDetailFragment.ARG_POST_ID, post.id) },

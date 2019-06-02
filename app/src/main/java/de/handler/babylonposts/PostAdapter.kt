@@ -11,15 +11,14 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import de.handler.core.dto.Post
-import de.handler.core.repository.Repository
 
 
-class PostAdapter(private val repository: Repository, private val onClickedAction: ((transitionView: View, post: Post) -> Unit)? = null) :
+class PostAdapter(private val onClickedAction: ((transitionView: View, post: Post) -> Unit)? = null) :
     ListAdapter<Post, PostAdapter.PostViewHolder>(PostsDiffItemCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_post, parent, false)
-        return PostViewHolder(view, repository, Picasso.with(view.context), onClickedAction)
+        return PostViewHolder(view, Picasso.with(view.context), onClickedAction)
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
@@ -28,7 +27,6 @@ class PostAdapter(private val repository: Repository, private val onClickedActio
 
     class PostViewHolder(
         itemView: View,
-        private val repository: Repository,
         private val picasso: Picasso,
         private val onClickedAction: ((transitionView: View, post: Post) -> Unit)?
     ) :

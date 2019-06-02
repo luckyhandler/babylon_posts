@@ -1,4 +1,4 @@
-# Babylon Posts
+# Babylon Posts - A Showcase Application
 
 ## Architecture
 The app uses a feature module approach.

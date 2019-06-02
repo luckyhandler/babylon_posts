@@ -43,3 +43,11 @@ Once the data is loaded it is retrieved from memory unless the `forceRefresh` fl
 ./gradlew testAll 
 ```
 This task combines the unit tests from all modules
+
+## Design
+
+The app's theme inherits from the MaterialComponents theme to be able to use the Material Theming, e.g. components like 
+[MaterialCardView](https://material.io/develop/android/components/material-card-view/).
+
+The parallax effect in the details screen is achieved with a CoordinatorLayout with a CollapsingToolbarLayout. 
+The hero animation is done with a Shared Element Transition.

@@ -7,8 +7,7 @@
 
     <fragment
         android:id="@+id/postsFragment"
-        android:name="de.handler.babylonposts.PostsFragment"
-        android:label="fragment_posts"
+        android:name="de.handler.postlist.PostsFragment"
         tools:layout="@layout/fragment_posts">
 
         <action
@@ -19,7 +18,7 @@
 
     <fragment
         android:id="@+id/postsDetailFragment"
-        android:name="de.handler.babylonposts.PostDetailsFragment"
+        android:name="de.handler.postdetails.PostDetailsFragment"
         tools:layout="@layout/fragment_posts_detail"/>
 
 </navigation>

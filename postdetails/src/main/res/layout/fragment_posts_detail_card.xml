@@ -101,6 +101,6 @@
         android:layout_marginEnd="@dimen/margin_horizontal"
         android:layout_marginBottom="@dimen/margin_vertical"
         android:textColor="?android:attr/textColorPrimaryInverse"
-        android:text="@string/comments_title"/>
+        android:text="@string/title_comments"/>
 
 </LinearLayout>

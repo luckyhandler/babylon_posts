@@ -3,18 +3,27 @@
 ## Architecture
 The app uses a feature module approach.
 In this case the feature modules are 
-- postlist 
-- postdetails 
+- `postlist` module
+- `postdetails` module
 
-Both rely on the 
-- core module
- 
-The core module contains all the dependencies which the feature modules need and also sets them up.
+In a real life scenario this would probably have been one feature module but for demonstration purposes they are split into two now.
 
-The app module then simply combines the needed feature modules by implementing them in it's own gradle file and 
-coordinating there usage.
+All feature modules rely on the  
+- `core` module
 
-Apart from that it uses a MVVM pattern with the ViewModel from Jetpack's Architecture Components and a repository 
+The `core` module contains all the dependencies the feature modules need and also sets them up.
+It also shares the app's resources like colors, dimensions, strings, styles, themes, and typography.
+
+The 
+- `app` module 
+
+then simply combines the needed feature modules by implementing them in it's own gradle file and 
+coordinating their usage. The app follows the single activity pattern --> each feature module contains fragments 
+which are displayed within this one activity.
+
+Navigation is achieved with Jetpack's Navigation Graph. The nav_graph.xml is also situated within the `app` module. 
+
+Apart from that the application uses a MVVM pattern with the ViewModel from Jetpack's Architecture Components and a repository 
 pattern to be able to provide the data from different sources. In this case the data sources are `network` and `memory cache`. 
 Once the data is loaded it is retrieved from memory unless the `forceRefresh` flag is set. 
 
@@ -33,4 +42,4 @@ Once the data is loaded it is retrieved from memory unless the `forceRefresh` fl
 ```
 ./gradlew testAll 
 ```
-This combines the unit tests from all modules
+This task combines the unit tests from all modules

@@ -19,11 +19,19 @@ allprojects {
     }
 }
 
+project.ext {
+    compileSdkVersion = 28
+    minSdkVersion = 21
+    targetSdkVersion = 28
+    versionCode = 1
+    versionName = "1.0"
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-task testAll(dependsOn: [':app:test', ':core:test']) {
+task testAll(dependsOn: [':app:test', ':core:test', ':postlist:test', ':postdetails:test']) {
     group = 'custom_tasks'
     description = "Run all tests"
 }

@@ -1,4 +1,4 @@
-package de.handler.babylonposts
+package de.handler.postlist
 
 import android.view.LayoutInflater
 import android.view.View

@@ -1,6 +1,7 @@
-package de.handler.babylonposts
+package de.handler.postlist
 
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,14 +9,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.fragment.FragmentNavigatorExtras
-import androidx.navigation.fragment.findNavController
+import de.handler.core.NavigationListener
 import de.handler.core.repository.Repository
 import kotlinx.android.synthetic.main.fragment_posts.*
 import org.koin.android.ext.android.inject
 
 class PostsFragment : Fragment() {
+    private var listener: NavigationListener? = null
+
     private val repository by inject<Repository>()
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        listener = (context as? NavigationListener)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,13 +38,7 @@ class PostsFragment : Fragment() {
 
         val viewModel = ViewModelProviders.of(this).get(PostsViewModel::class.java)
 
-        val adapter = PostAdapter() { transitionView, post ->
-            findNavController().navigate(
-                R.id.action_postsFragment_to_postsDetailFragment,
-                Bundle().apply { putInt(PostDetailsFragment.ARG_POST_ID, post.id) },
-                null,
-                FragmentNavigatorExtras(transitionView to getString(R.string.transition_image)))
-        }
+        val adapter = PostAdapter() { transitionView, post -> listener?.onNavigateToDetails(transitionView, post) }
 
         viewModel.observePosts(repository).observe(this, Observer {
             adapter.submitList(it)

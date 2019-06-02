@@ -1,4 +1,4 @@
-package de.handler.babylonposts
+package de.handler.postlist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,8 +1,8 @@
-package de.handler.babylonposts
+package de.handler.postdetails
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.jraska.livedata.test
-import de.handler.core.dto.Post
+import de.handler.core.dto.Comment
 import de.handler.core.provider.DataProviderMockImpl
 import de.handler.core.repository.Repository
 import kotlinx.coroutines.Dispatchers
@@ -16,20 +16,20 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
 
-class PostsViewModelTest {
+class PostDetailsViewModelTest {
     private val mainThreadSurrogate = newSingleThreadContext("UI thread")
-    private lateinit var posts: List<Post>
+    private lateinit var comments: List<Comment>
 
     @get:Rule
     val rule: TestRule = InstantTaskExecutorRule()
 
     private val dataProvider = DataProviderMockImpl()
     private val repository = Repository(dataProvider)
-    private val viewModel = PostsViewModel()
+    private val viewModel = PostDetailsViewModel()
 
     @Before
     fun setup() = runBlocking {
-        posts = dataProvider.getPostsAsync()
+        comments = dataProvider.getCommentsAsync()
         Dispatchers.setMain(mainThreadSurrogate)
     }
 
@@ -40,10 +40,10 @@ class PostsViewModelTest {
     }
 
     @Test
-    fun `live data should correctly post posts`() {
-        viewModel.observePosts(repository).test()
+    fun `live data should correctly post comments`() {
+        viewModel.observeComments(0, repository).test()
             .awaitValue()
             .assertHasValue()
-            .assertValue(posts)
+            .assertValue(comments.filter { it.postId == 0 })
     }
 }

@@ -1,4 +1,4 @@
-package de.handler.babylonposts
+package de.handler.postdetails
 
 
 import android.os.Bundle
@@ -12,7 +12,6 @@ import androidx.transition.TransitionInflater
 import com.bumptech.glide.Glide
 import de.handler.core.repository.Repository
 import de.handler.loadUrl
-import de.handler.postlist.R
 import kotlinx.android.synthetic.main.fragment_posts_detail.*
 import kotlinx.android.synthetic.main.fragment_posts_detail_card.*
 import org.koin.android.ext.android.inject
@@ -41,7 +40,7 @@ class PostDetailsFragment : Fragment() {
         val viewModel = ViewModelProviders.of(this).get(PostDetailsViewModel::class.java)
 
         val postId = arguments?.getInt(ARG_POST_ID) ?: return
-        activity?.title = getString(R.string.post_details_title, postId)
+        activity?.title = getString(R.string.title_post_details, postId)
 
         viewModel.getPost(postId, repository) {
             postImageView.loadUrl(Glide.with(this), it.image)
@@ -53,7 +52,7 @@ class PostDetailsFragment : Fragment() {
 
         val adapter = CommentsAdapter()
         viewModel.observeComments(postId, repository).observe(this, Observer {
-            commentsCountTextView.text = getString(R.string.comments_size, it.size.toString())
+            commentsCountTextView.text = getString(R.string.size_comments, it.size.toString())
             adapter.submitList(it)
         })
         commentsRecyclerView.setHasFixedSize(true)

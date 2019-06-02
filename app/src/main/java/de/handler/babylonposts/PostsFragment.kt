@@ -27,12 +27,14 @@ class PostsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        activity?.title = getString(R.string.title_list)
+
         val viewModel = ViewModelProviders.of(this).get(PostsViewModel::class.java)
 
         val adapter = PostAdapter() { transitionView, post ->
             findNavController().navigate(
                 R.id.action_postsFragment_to_postsDetailFragment,
-                Bundle().apply { putInt(PostsDetailFragment.ARG_POST_ID, post.id) },
+                Bundle().apply { putInt(PostDetailsFragment.ARG_POST_ID, post.id) },
                 null,
                 FragmentNavigatorExtras(transitionView to getString(R.string.transition_image)))
         }

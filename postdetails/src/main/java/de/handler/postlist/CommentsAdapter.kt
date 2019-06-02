@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import de.handler.core.dto.Comment
+import de.handler.postlist.R
 
 
 class CommentsAdapter : ListAdapter<Comment, CommentsAdapter.CommentViewHolder>(CommentsDiffItemCallback()) {

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import de.handler.core.dto.Post
+import de.handler.loadUrl
 
 
 class PostAdapter(private val onClickedAction: ((transitionView: View, post: Post) -> Unit)? = null) :

@@ -11,11 +11,13 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.transition.TransitionInflater
 import com.bumptech.glide.Glide
 import de.handler.core.repository.Repository
+import de.handler.loadUrl
+import de.handler.postlist.R
 import kotlinx.android.synthetic.main.fragment_posts_detail.*
 import kotlinx.android.synthetic.main.fragment_posts_detail_card.*
 import org.koin.android.ext.android.inject
 
-class PostsDetailFragment : Fragment() {
+class PostDetailsFragment : Fragment() {
     private val repository: Repository by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {

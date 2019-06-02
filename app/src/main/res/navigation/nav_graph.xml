@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/postsDetailFragment"
-        android:name="de.handler.babylonposts.PostsDetailFragment"
+        android:name="de.handler.babylonposts.PostDetailsFragment"
         tools:layout="@layout/fragment_posts_detail"/>
 
 </navigation>

@@ -1,4 +1,4 @@
-package de.handler.babylonposts
+package de.handler
 
 import android.widget.ImageView
 import com.bumptech.glide.RequestManager

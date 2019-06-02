@@ -7,4 +7,7 @@
     <dimen name="margin_card">8dp</dimen>
     <dimen name="corner_radius">8dp</dimen>
     <dimen name="card_elevation">8dp</dimen>
+
+    <dimen name="toolbar_offset_start">250dp</dimen>
+    <dimen name="toolbar_offset_top">148dp</dimen>
 </resources>

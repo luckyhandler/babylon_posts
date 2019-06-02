@@ -23,7 +23,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_percent="0.3"
-            app:srcCompat="@drawable/ic_person"
             tools:src="@tools:sample/avatars"/>
 
         <TextView

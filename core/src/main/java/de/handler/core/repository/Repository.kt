@@ -37,7 +37,7 @@ class Repository(private val dataProvider: DataProvider) {
             postList.forEach {
                 if (it.image.isNullOrBlank()) {
                     val random = range.random()
-                    it.image = "https://picsum.photos/id/$random/640"
+                    it.image = "https://picsum.photos/id/$random/1920/1280"
                     it.thumbnail = "https://picsum.photos/id/$random/200"
                 }
             }

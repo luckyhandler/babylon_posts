@@ -10,16 +10,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/selectableItemBackground"
-        android:paddingStart="@dimen/margin_horizontal"
-        android:paddingEnd="@dimen/margin_horizontal">
+        android:background="?attr/selectableItemBackground">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="0dp"
             android:layout_height="@dimen/size_image"
-            android:layout_marginTop="@dimen/margin_horizontal"
-            android:layout_marginBottom="@dimen/margin_horizontal"
             android:contentDescription="@string/content_description_post_image"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"

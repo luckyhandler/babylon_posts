@@ -15,6 +15,7 @@ class DataProviderMockImpl : DataProvider {
                 0,
                 "Disappointing. I have starred at this tracker a couple of times during our stay.",
                 "I STAKED OUT MY LOCAL DOMINO’S TO SEE JUST HOW ACCURATE ITS PIZZA TRACKER IS",
+                "https://picsum.photos/id/113/367/267",
                 "https://picsum.photos/id/113/367/267"
             ),
             Post(
@@ -22,6 +23,7 @@ class DataProviderMockImpl : DataProvider {
                 1,
                 "Thanks for featuring my latest Android post on CameraX!",
                 "Latest Android Weekly Issue 363 is out! https://androidweekly.net/#latest-issue  #AndroidDev #Kotlin",
+                "https://picsum.photos/id/113/367/267",
                 "https://picsum.photos/id/113/367/267"
             ),
             Post(
@@ -29,6 +31,7 @@ class DataProviderMockImpl : DataProvider {
                 1,
                 "Koin the dependency injection framework for @kotlin and @AndroidDev is officially out in 2.0! Check the latest changes here: https://medium.com/koin-developers/ready-for-koin-2-0-",
                 "See you at @kotliners conference to talk about @insertkoin_io \uD83D\uDE00 #koin #AndroidDev",
+                "https://picsum.photos/id/1084/367/267",
                 "https://picsum.photos/id/1084/367/267"
             )
         )

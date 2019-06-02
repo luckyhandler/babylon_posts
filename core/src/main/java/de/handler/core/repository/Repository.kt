@@ -33,10 +33,12 @@ class Repository(private val dataProvider: DataProvider) {
         if (_posts.isEmpty() || forceReload) {
             val postList = dataProvider.getPostsAsync().sortedBy { post -> post.userId }
 
-            val range = IntRange(0, 1000)
+            val range = IntRange(0, 999)
             postList.forEach {
                 if (it.image.isNullOrBlank()) {
-                    it.image = "https://picsum.photos/id/${range.random()}/500"
+                    val random = range.random()
+                    it.image = "https://picsum.photos/id/$random/640"
+                    it.thumbnail = "https://picsum.photos/id/$random/200"
                 }
             }
 

@@ -9,7 +9,8 @@ import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
+import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestManager
 import de.handler.core.dto.Post
 
 
@@ -18,7 +19,7 @@ class PostAdapter(private val onClickedAction: ((transitionView: View, post: Pos
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_post, parent, false)
-        return PostViewHolder(view, Picasso.with(view.context), onClickedAction)
+        return PostViewHolder(view, Glide.with(view.context), onClickedAction)
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
@@ -27,16 +28,19 @@ class PostAdapter(private val onClickedAction: ((transitionView: View, post: Pos
 
     class PostViewHolder(
         itemView: View,
-        private val picasso: Picasso,
+        private val glideRequestManager: RequestManager,
         private val onClickedAction: ((transitionView: View, post: Post) -> Unit)?
     ) :
 
         RecyclerView.ViewHolder(itemView) {
         fun bind(post: Post?) {
             if (post == null) return
+            // warm up cache so that shared element
+            // transition to details screen works without image loading
+            glideRequestManager.load(post.image).preload()
 
             val imageView = itemView.findViewById<ImageView>(R.id.imageView)
-            imageView.loadUrl(picasso, post.image)
+            imageView.loadUrl(glideRequestManager, post.thumbnail)
             itemView.setOnClickListener {
                 ViewCompat.setTransitionName(imageView, itemView.context.getString(R.string.transition_image))
                 onClickedAction?.invoke(imageView, post)

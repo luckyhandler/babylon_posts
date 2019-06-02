@@ -26,7 +26,8 @@ data class Post(
     val userId: Int?,
     val title: String?,
     val body: String?,
-    var image: String? = null
+    var image: String? = null,
+    var thumbnail: String? = null
 )
 
 data class Comment(

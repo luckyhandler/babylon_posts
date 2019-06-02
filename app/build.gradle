@@ -27,9 +27,6 @@ dependencies {
     // Android Support Libraries and AndroidX
     implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
 
-    // Image Downloader
-    implementation 'com.squareup.picasso:picasso:2.5.2'
-
     // Navigation
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0'

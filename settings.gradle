@@ -1,2 +1,1 @@
 include ':app', ':core', ':postdetails', ':postlist'
-rootProject.name='My Application'
